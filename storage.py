@@ -1,4 +1,15 @@
-storage = []
+storage = [
+    {
+        'id' : 123,
+        'description' : 'descricao1',
+        'quantity' : 12
+    },
+    {
+        'id' : 124,
+        'description' : 'descricao2',
+        'quantity' : 66
+    }
+]
 
 
 def create():
@@ -40,3 +51,25 @@ def update():
 
     print(f'Produto#{_id} atualizado com sucesso!')
     return storage
+
+def delete():  
+    _id = int(input('Digite o código do produto que deseja deletar: '))
+
+    found_item = list(filter(lambda _product: _product['id'] == _id, storage))
+    if len(found_item) == 0:
+        print('Produto não encontrado.')
+        return
+
+    storage.remove(found_item[0])
+
+    print(f'Produto#{_id} deletado com sucesso!')
+    return storage
+
+def index():
+    print("CÓDIGO\tDESCRIÇÃO\tQUANTIDADE EM ESTOQUE:")
+    print(6 * '-', '', 14 * '-', '', 22 * '-')
+    for product in storage:
+        print(f" {product['id']}     {product['description'].ljust(20)} {product['quantity']}")
+
+
+        

@@ -12,14 +12,13 @@ while menu != 7:
         storage.create()
 
     elif menu == 2:
-        response =storage.update()
-        print(response)
+        storage.update()
 
     elif menu == 3:
-        print('void')
+        storage.delete()
 
     elif menu == 4:
-        print('void')
+        storage.index()
 
     elif menu == 5:
         print('void')
