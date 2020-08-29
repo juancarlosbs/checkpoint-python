@@ -1,9 +1,6 @@
-import product
+import storage
 
-_nome = 'a'
-storage = []
 menu = 0
-
 
 while menu != 7:
     print('\nMenu')
@@ -12,26 +9,27 @@ while menu != 7:
         "Comprar Produto\n\t6. Vender Produto\n\t7. Sair\n\nDigite a opção desejada: "))
 
     if menu == 1:
-        storage = product.create(storage)
-        print(storage)
+        storage.create()
+
     elif menu == 2:
-        print('void')
+        response =storage.update()
+        print(response)
+
     elif menu == 3:
         print('void')
+
     elif menu == 4:
         print('void')
+
     elif menu == 5:
         print('void')
+
     elif menu == 6:
         print('void')
+
     elif menu == 7:
         print("Saindo...")
         exit()
 
     else:
         print("\033[31mOpção inválida!\033[m")
-
-
-print(list(filter(lambda _produto: _produto['name'] == 'carlos', estoque)))
-
-print(estoque)
