@@ -1,4 +1,8 @@
+import authentication
 import storage
+import settings
+
+settings.init()
 
 menu = 0
 
@@ -12,23 +16,26 @@ while menu != 7:
         storage.create()
 
     elif menu == 2:
-        storage.update()
+        authentication.authenticate()
+        if settings.is_authenticated:
+            storage.update()
 
     elif menu == 3:
-        storage.delete()
+        authentication.authenticate()
+        if settings.is_authenticated:
+            storage.delete()
 
     elif menu == 4:
         storage.index()
 
     elif menu == 5:
-        print('void')
+        storage.buy()
 
     elif menu == 6:
-        print('void')
+        storage.sell()
 
     elif menu == 7:
-        print("Saindo...")
-        exit()
+        authentication.logout()
 
     else:
-        print("\033[31mOpção inválida!\033[m")
+        print("\033[31mOPÇÃO INVALIDA!\033[m")
